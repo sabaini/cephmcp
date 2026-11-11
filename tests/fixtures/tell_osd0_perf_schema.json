@@ -1,0 +1,1434 @@
+{
+ "osd": {
+  "op_wip": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Replication operations currently being processed (primary)"
+  },
+  "op": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 10,
+   "description": "Client operations"
+  },
+  "op_in_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "Client operations total write size"
+  },
+  "op_out_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "Client operations total read size"
+  },
+  "op_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 9,
+   "description": "Latency of client operations (including queue time)"
+  },
+  "op_process_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of client operations (excluding queue time)"
+  },
+  "op_prepare_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of client operations (excluding queue time and wait for finished)"
+  },
+  "op_r": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Client read operations"
+  },
+  "op_r_out_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Client data read"
+  },
+  "op_r_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of read operation (including queue time)"
+  },
+  "op_r_process_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of read operation (excluding queue time)"
+  },
+  "op_r_prepare_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of read operations (excluding queue time and wait for finished)"
+  },
+  "op_w": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Client write operations"
+  },
+  "op_w_in_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Client data written"
+  },
+  "op_w_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of write operation (including queue time)"
+  },
+  "op_w_process_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of write operation (excluding queue time)"
+  },
+  "op_w_prepare_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of write operations (excluding queue time and wait for finished)"
+  },
+  "op_rw": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Client read-modify-write operations"
+  },
+  "op_rw_in_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Client read-modify-write operations write in"
+  },
+  "op_rw_out_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Client read-modify-write operations read out "
+  },
+  "op_rw_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of read-modify-write operation (including queue time)"
+  },
+  "op_rw_process_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of read-modify-write operation (excluding queue time)"
+  },
+  "op_rw_prepare_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of read-modify-write operations (excluding queue time and wait for finished)"
+  },
+  "op_delayed_unreadable": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Count of ops delayed due to target object being unreadable"
+  },
+  "op_delayed_degraded": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Count of ops delayed due to target object being degraded"
+  },
+  "op_before_queue_op_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Latency of IO before calling queue(before really queue into ShardedOpWq)"
+  },
+  "op_before_dequeue_op_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "Latency of IO before calling dequeue_op(already dequeued and get PG lock)"
+  },
+  "replica_read": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Count of replica reads received"
+  },
+  "replica_read_redirect_missing": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Count of replica reads redirected to primary due to missing object"
+  },
+  "replica_read_redirect_conflict": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Count of replica reads redirected to primary due to unstable write"
+  },
+  "replica_read_served": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Count of replica reads served"
+  },
+  "subop": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Suboperations"
+  },
+  "subop_in_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Suboperations total size"
+  },
+  "subop_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "Suboperations latency"
+  },
+  "subop_w": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Replicated writes"
+  },
+  "subop_w_in_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Replicated written data size"
+  },
+  "subop_w_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "Replicated writes latency"
+  },
+  "subop_pull": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Suboperations pull requests"
+  },
+  "subop_pull_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "Suboperations pull latency"
+  },
+  "subop_push": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Suboperations push messages"
+  },
+  "subop_push_in_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Suboperations pushed size"
+  },
+  "subop_push_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "Suboperations push latency"
+  },
+  "pull": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Pull requests sent"
+  },
+  "push": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Push messages sent"
+  },
+  "push_out_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Pushed size"
+  },
+  "recovery_ops": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "Started recovery operations"
+  },
+  "recovery_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "recovery bytes"
+  },
+  "l_osd_recovery_push_queue_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "MOSDPGPush queue latency"
+  },
+  "l_osd_recovery_push_reply_queue_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "MOSDPGPushReply queue latency"
+  },
+  "l_osd_recovery_pull_queue_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "MOSDPGPull queue latency"
+  },
+  "l_osd_recovery_backfill_queue_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "MOSDPGBackfill queue latency"
+  },
+  "l_osd_recovery_backfill_remove_queue_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "MOSDPGBackfillDelete queue latency"
+  },
+  "l_osd_recovery_scan_queue_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "MOSDPGScan queue latency"
+  },
+  "l_osd_recovery_queue_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "PGRecovery queue latency"
+  },
+  "l_osd_recovery_context_queue_latency": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "PGRecoveryContext queue latency"
+  },
+  "loadavg": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "CPU load"
+  },
+  "cached_crc": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Total number getting crc from crc_cache"
+  },
+  "cached_crc_adjusted": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Total number getting crc from crc_cache with adjusting"
+  },
+  "missed_crc": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Total number of crc cache misses"
+  },
+  "numpg": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Placement groups"
+  },
+  "numpg_primary": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Placement groups for which this osd is primary"
+  },
+  "numpg_replica": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Placement groups for which this osd is replica"
+  },
+  "numpg_stray": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Placement groups ready to be deleted from this osd"
+  },
+  "numpg_removing": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Placement groups queued for local deletion"
+  },
+  "heartbeat_to_peers": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Heartbeat (ping) peers we send to"
+  },
+  "map_messages": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "OSD map messages"
+  },
+  "map_message_epochs": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "OSD map epochs"
+  },
+  "map_message_epoch_dups": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "OSD map duplicates"
+  },
+  "messages_delayed_for_map": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Operations waiting for OSD map"
+  },
+  "osd_map_cache_hit": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "osdmap cache hit"
+  },
+  "osd_map_cache_miss": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "osdmap cache miss"
+  },
+  "osd_map_cache_miss_low": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "osdmap cache miss below cache lower bound"
+  },
+  "osd_map_cache_miss_low_avg": {
+   "metric_type": "gauge",
+   "value_type": "integer-integer-pair",
+   "priority": 0,
+   "description": "osdmap cache miss, avg distance below cache lower bound"
+  },
+  "osd_map_bl_cache_hit": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "OSDMap buffer cache hits"
+  },
+  "osd_map_bl_cache_miss": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "OSDMap buffer cache misses"
+  },
+  "stat_bytes": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "OSD size"
+  },
+  "stat_bytes_used": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Used space"
+  },
+  "stat_bytes_avail": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Available space"
+  },
+  "copyfrom": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Rados \"copy-from\" operations"
+  },
+  "tier_promote": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tier promotions"
+  },
+  "tier_flush": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tier flushes"
+  },
+  "tier_flush_fail": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Failed tier flushes"
+  },
+  "tier_try_flush": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tier flush attempts"
+  },
+  "tier_try_flush_fail": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Failed tier flush attempts"
+  },
+  "tier_evict": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tier evictions"
+  },
+  "tier_whiteout": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tier whiteouts"
+  },
+  "tier_dirty": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Dirty tier flag set"
+  },
+  "tier_clean": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Dirty tier flag cleaned"
+  },
+  "tier_delay": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tier delays (agent waiting)"
+  },
+  "tier_proxy_read": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tier proxy reads"
+  },
+  "tier_proxy_write": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tier proxy writes"
+  },
+  "agent_wake": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tiering agent wake up"
+  },
+  "agent_skip": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Objects skipped by agent"
+  },
+  "agent_flush": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tiering agent flushes"
+  },
+  "agent_evict": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Tiering agent evictions"
+  },
+  "object_ctx_cache_hit": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Object context cache hits"
+  },
+  "object_ctx_cache_total": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Object context cache lookups"
+  },
+  "op_cache_hit": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": ""
+  },
+  "osd_tier_flush_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "Object flush latency"
+  },
+  "osd_tier_promote_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "Object promote latency"
+  },
+  "osd_tier_r_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "Object proxy read latency"
+  },
+  "osd_pg_info": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "PG updated its info (using any method)"
+  },
+  "osd_pg_fastinfo": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "PG updated its info using fastinfo attr"
+  },
+  "osd_pg_biginfo": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "PG updated its biginfo attr"
+  },
+  "watch_timeouts": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Number of watches that timed out or were blocklisted"
+  },
+  "scrub_omapgetheader_cnt": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub omap get header calls count"
+  },
+  "scrub_omapgetheader_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub omap get header bytes read"
+  },
+  "scrub_omapget_cnt": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub omap get calls count"
+  },
+  "scrub_omapget_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub omap get bytes read"
+  },
+  "scrub_replicated_getattr_cnt": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub replicated pool getattr calls count"
+  },
+  "scrub_replicated_stats_cnt": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub replicated pool stats calls count"
+  },
+  "scrub_replicated_read_cnt": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub replicated pool read calls count"
+  },
+  "scrub_replicated_read_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub replicated pool read bytes read"
+  },
+  "scrub_ec_getattr_cnt": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub EC getattr calls count"
+  },
+  "scrub_ec_stats_cnt": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub EC stats calls count"
+  },
+  "scrub_ec_read_cnt": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub EC read calls count"
+  },
+  "scrub_ec_read_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub EC read bytes read"
+  },
+  "num_scrubs_started_replicated": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "replicated scrubs attempted count"
+  },
+  "num_scrubs_past_reservation_replicated": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "replicated scrubs count"
+  },
+  "successful_scrubs_replicated": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "successful replicated scrubs count"
+  },
+  "successful_scrubs_replicated_elapsed": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "time to complete a successful replicated scrub"
+  },
+  "failed_scrubs_replicated": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "failed replicated scrubs count"
+  },
+  "failed_scrubs_replicated_elapsed": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "time to scrub failure replicated"
+  },
+  "scrub_replicated_scrub_reservations_completed": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "successfully completed reservation processes"
+  },
+  "scrub_replicated_successful_reservations_elapsed": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "time to scrub reservation completion"
+  },
+  "scrub_replicated_reservation_process_aborted": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub replicated pool reservation was aborted"
+  },
+  "scrub_replicated_reservation_process_failure": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub replicated pool reservation failed due to replica denial"
+  },
+  "scrub_replicated_reservation_process_skipped": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub replicated pool reservation skipped for high priority scrub"
+  },
+  "scrub_replicated_failed_reservations_elapsed": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "scrub replicated pool time for scrub reservation to fail"
+  },
+  "scrub_replicated_replicas_in_reservation": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub replicated pool number of replicas to reserve"
+  },
+  "num_scrubs_started_ec": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "EC scrubs attempted count"
+  },
+  "num_scrubs_past_reservation_ec": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "EC scrubs count"
+  },
+  "successful_scrubs_ec": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "successful EC scrubs count"
+  },
+  "successful_scrubs_ec_elapsed": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "time to complete a successful EC scrub"
+  },
+  "failed_scrubs_ec": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "failed scrubs count EC"
+  },
+  "failed_scrubs_ec_elapsed": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "time to scrub failure ec"
+  },
+  "scrub_ec_reservations_completed": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "successfully completed reservation processes EC"
+  },
+  "scrub_ec_successful_reservations_elapsed": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "time to EC scrub reservation completion"
+  },
+  "scrub_ec_reservation_process_aborted": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub reservation was aborted EC"
+  },
+  "scrub_ec_reservation_process_failure": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub reservation failed due to replica denial EC"
+  },
+  "scrub_ec_reservation_process_skipped": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "scrub reservation skipped for high priority scrub EC"
+  },
+  "scrub_ec_failed_reservations_elapsed": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "time for scrub reservation to fail EC"
+  },
+  "scrub_ec_replicas_in_reservation": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 8,
+   "description": "number of replicas to reserve EC"
+  }
+ },
+ "bluestore": {
+  "allocated": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 10,
+   "description": "Sum for allocated bytes"
+  },
+  "stored": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 10,
+   "description": "Sum for stored bytes"
+  },
+  "fragmentation_micros": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "How fragmented bluestore free space is (free extents / max possible number of free extents) * 1000"
+  },
+  "alloc_unit": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 10,
+   "description": "allocation unit size in bytes"
+  },
+  "state_prepare_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average prepare state latency"
+  },
+  "state_aio_wait_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "Average aio_wait state latency"
+  },
+  "state_io_done_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average io_done state latency"
+  },
+  "state_kv_queued_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average kv_queued state latency"
+  },
+  "state_kv_commiting_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average kv_commiting state latency"
+  },
+  "state_kv_done_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average kv_done state latency"
+  },
+  "state_finishing_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average finishing state latency"
+  },
+  "state_done_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average done state latency"
+  },
+  "state_deferred_queued_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average deferred_queued state latency"
+  },
+  "state_deferred_aio_wait_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average aio_wait state latency"
+  },
+  "state_deferred_cleanup_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average cleanup state latency"
+  },
+  "txc_commit_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 10,
+   "description": "Average commit latency"
+  },
+  "txc_throttle_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 10,
+   "description": "Average submit throttle latency"
+  },
+  "txc_submit_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 10,
+   "description": "Average submit latency"
+  },
+  "txc_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Transactions committed"
+  },
+  "read_onode_meta_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average read onode metadata latency"
+  },
+  "read_wait_aio_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average read I/O waiting latency"
+  },
+  "csum_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average checksum latency"
+  },
+  "read_eio": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Read EIO errors propagated to high level callers"
+  },
+  "reads_with_retries": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Read operations that required at least one retry due to failed checksum validation"
+  },
+  "read_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 10,
+   "description": "Average read latency"
+  },
+  "kv_flush_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "Average kv_thread flush latency"
+  },
+  "kv_commit_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average kv_thread commit latency"
+  },
+  "kv_sync_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "Average kv_sync thread latency"
+  },
+  "kv_final_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 8,
+   "description": "Average kv_finalize thread latency"
+  },
+  "write_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "write_op average execution time"
+  },
+  "write_big": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Large aligned writes into fresh blobs"
+  },
+  "write_big_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Large aligned writes into fresh blobs (bytes)"
+  },
+  "write_big_blobs": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Large aligned writes into fresh blobs (blobs)"
+  },
+  "write_big_deferred": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Big overwrites using deferred"
+  },
+  "write_small": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Small writes into existing or sparse small blobs"
+  },
+  "write_small_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Small writes into existing or sparse small blobs (bytes)"
+  },
+  "write_small_unused": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Small writes into unused portion of existing blob"
+  },
+  "write_small_pre_read": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Small writes that required we read some data (possibly cached) to fill out the block"
+  },
+  "write_pad_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Sum for write-op padded bytes"
+  },
+  "write_penalty_read_ops": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Sum for write penalty read ops"
+  },
+  "write_new": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Write into new blob"
+  },
+  "issued_deferred_writes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Total deferred writes issued"
+  },
+  "issued_deferred_write_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Total bytes in issued deferred writes"
+  },
+  "submitted_deferred_writes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Total deferred writes submitted to disk"
+  },
+  "submitted_deferred_write_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Total bytes submitted to disk by deferred writes"
+  },
+  "write_big_skipped_blobs": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Large aligned writes into fresh blobs skipped due to zero detection (blobs)"
+  },
+  "write_big_skipped_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Large aligned writes into fresh blobs skipped due to zero detection (bytes)"
+  },
+  "write_small_skipped": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Small writes into existing or sparse small blobs skipped due to zero detection"
+  },
+  "write_small_skipped_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Small writes into existing or sparse small blobs skipped due to zero detection (bytes)"
+  },
+  "compressed": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Sum for stored compressed bytes"
+  },
+  "compressed_allocated": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Sum for bytes allocated for compressed data"
+  },
+  "compressed_original": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Sum for original bytes that were compressed"
+  },
+  "compress_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average compress latency"
+  },
+  "decompress_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average decompress latency"
+  },
+  "compress_success_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Sum for beneficial compress ops"
+  },
+  "compress_rejected_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Sum for compress ops rejected due to low net gain of space"
+  },
+  "onodes": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Number of onodes in cache"
+  },
+  "onodes_pinned": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Number of pinned onodes in cache"
+  },
+  "onode_hits": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Count of onode cache lookup hits"
+  },
+  "onode_misses": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Count of onode cache lookup misses"
+  },
+  "onode_shard_hits": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Count of onode shard cache lookups hits"
+  },
+  "onode_shard_misses": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Count of onode shard cache lookups misses"
+  },
+  "onode_extents": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Number of extents in cache"
+  },
+  "onode_blobs": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Number of blobs in cache"
+  },
+  "onode_spanning_blobs": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Number of spanning blobs in loaded onodes"
+  },
+  "buffers": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Number of buffers in cache"
+  },
+  "buffer_bytes": {
+   "metric_type": "gauge",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Number of buffer bytes in cache"
+  },
+  "buffer_hit_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Sum for bytes of read hit in the cache"
+  },
+  "buffer_miss_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Sum for bytes of read missed in the cache"
+  },
+  "onode_reshard": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Onode extent map reshard events"
+  },
+  "blob_split": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Sum for blob splitting due to resharding"
+  },
+  "extent_compress": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Sum for extents that have been removed due to compression"
+  },
+  "gc_merged": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Sum for extents that have been merged due to garbage collection"
+  },
+  "omap_iterator_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "Open omap iterators count"
+  },
+  "omap_rmkeys_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "amount of omap keys removed via rmkeys"
+  },
+  "omap_rmkey_range_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "amount of omap key ranges removed via rmkeys"
+  },
+  "omap_setheader_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "amount of omap setheader calls"
+  },
+  "omap_setheader_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "amount of bytes set by omap setheader calls"
+  },
+  "omap_setkeys_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "amount of omap setkeys calls"
+  },
+  "omap_setkeys_records": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "amount of keys set by omap setkeys calls"
+  },
+  "omap_setkeys_bytes": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 0,
+   "description": "amount of bytes set by omap setkeys calls"
+  },
+  "omap_upper_bound_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average omap iterator upper_bound call latency"
+  },
+  "omap_lower_bound_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average omap iterator lower_bound call latency"
+  },
+  "omap_next_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average omap iterator next call latency"
+  },
+  "omap_get_keys_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average omap get_keys call latency"
+  },
+  "omap_get_values_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average omap get_values call latency"
+  },
+  "omap_clear_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 0,
+   "description": "Average omap clear call latency"
+  },
+  "clist_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average collection listing latency"
+  },
+  "remove_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average removal latency"
+  },
+  "truncate_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average truncate latency"
+  },
+  "allocator_lat": {
+   "metric_type": "gauge",
+   "value_type": "real-integer-pair",
+   "priority": 5,
+   "description": "Average bluestore allocator latency"
+  },
+  "slow_aio_wait_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Slow op count for aio wait"
+  },
+  "slow_committed_kv_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Slow op count for committed kv"
+  },
+  "slow_read_onode_meta_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Slow op count for read onode meta"
+  },
+  "slow_read_wait_aio_count": {
+   "metric_type": "counter",
+   "value_type": "integer",
+   "priority": 5,
+   "description": "Slow op count for read wait aio"
+  }
+ }
+}

@@ -1,0 +1,27 @@
+[
+ {
+  "pool_name": ".mgr",
+  "pool_id": 1,
+  "recovery": {},
+  "recovery_rate": {},
+  "client_io_rate": {}
+ },
+ {
+  "pool_name": "testpool",
+  "pool_id": 4,
+  "recovery": {},
+  "recovery_rate": {},
+  "client_io_rate": {
+   "write_bytes_sec": 10196396,
+   "read_op_per_sec": 0,
+   "write_op_per_sec": 622
+  }
+ },
+ {
+  "pool_name": "ecpool",
+  "pool_id": 5,
+  "recovery": {},
+  "recovery_rate": {},
+  "client_io_rate": {}
+ }
+]

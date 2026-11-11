@@ -1,0 +1,99 @@
+{
+ "status": "HEALTH_ERR",
+ "checks": {
+  "OSD_FULL": {
+   "severity": "HEALTH_ERR",
+   "summary": {
+    "message": "2 full osd(s)",
+    "count": 2
+   },
+   "detail": [
+    {
+     "message": "osd.0 is full"
+    },
+    {
+     "message": "osd.1 is full"
+    }
+   ],
+   "muted": false
+  },
+  "PG_AVAILABILITY": {
+   "severity": "HEALTH_WARN",
+   "summary": {
+    "message": "Reduced data availability: 16 pgs inactive, 16 pgs incomplete",
+    "count": 32
+   },
+   "detail": [
+    {
+     "message": "pg 3.0 is creating+incomplete, acting [1,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.1 is creating+incomplete, acting [0,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.2 is creating+incomplete, acting [1,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.3 is creating+incomplete, acting [0,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.4 is creating+incomplete, acting [1,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.5 is creating+incomplete, acting [2,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.6 is creating+incomplete, acting [0,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.7 is creating+incomplete, acting [2,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.8 is creating+incomplete, acting [2,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.9 is creating+incomplete, acting [0,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.a is creating+incomplete, acting [0,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.b is creating+incomplete, acting [1,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.c is creating+incomplete, acting [0,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.d is creating+incomplete, acting [1,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.e is creating+incomplete, acting [2,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    },
+    {
+     "message": "pg 3.f is creating+incomplete, acting [0,NONE,NONE,NONE] (reducing pool ecpool min_size from 3 may help; search ceph.com/docs for 'incomplete')"
+    }
+   ],
+   "muted": false
+  },
+  "POOL_FULL": {
+   "severity": "HEALTH_WARN",
+   "summary": {
+    "message": "3 pool(s) full",
+    "count": 3
+   },
+   "detail": [
+    {
+     "message": "pool '.mgr' is full (no space)"
+    },
+    {
+     "message": "pool 'testpool' is full (no space)"
+    },
+    {
+     "message": "pool 'ecpool' is full (no space)"
+    }
+   ],
+   "muted": false
+  }
+ },
+ "mutes": []
+}

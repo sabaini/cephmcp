@@ -1,0 +1,20 @@
+{
+ "status": "success",
+ "data": {
+  "resultType": "vector",
+  "result": [
+   {
+    "metric": {
+     "__name__": "ceph_health_status",
+     "cluster": "1ea4e1cc-ddcc-11f1-9f64-00163e578a2b",
+     "instance": "ceph_cluster",
+     "job": "ceph"
+    },
+    "value": [
+     1794400885.16,
+     "1"
+    ]
+   }
+  ]
+ }
+}

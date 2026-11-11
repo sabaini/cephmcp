@@ -1,0 +1,30 @@
+[
+ {
+  "container_id": "c8da0487ad9f",
+  "container_image_digests": [
+   "quay.io/ceph/ceph@sha256:1228c3d05e45fbc068a8c33614e4409b6dac688bcc77369b06009b5830fa8d86",
+   "quay.io/ceph/ceph@sha256:4c65c801a8e5e5704934118b2c723e7233f2b5de8552bfc8f129dabe1fced0b1"
+  ],
+  "container_image_id": "524f3da276461682bec27427fb8a63b5139c40ad4185939aede197474a6817b3",
+  "container_image_name": "quay.io/ceph/ceph@sha256:1228c3d05e45fbc068a8c33614e4409b6dac688bcc77369b06009b5830fa8d86",
+  "cpu_percentage": "1.95%",
+  "created": "2026-11-11T12:35:20.755751Z",
+  "daemon_id": "cephmcp-adm",
+  "daemon_name": "ceph-exporter.cephmcp-adm",
+  "daemon_type": "ceph-exporter",
+  "hostname": "cephmcp-adm",
+  "is_active": false,
+  "last_refresh": "2026-11-11T12:38:24.239737Z",
+  "memory_usage": 9917431,
+  "pending_daemon_config": false,
+  "ports": [
+   9926
+  ],
+  "service_name": "ceph-exporter",
+  "started": "2026-11-11T12:35:20.610873Z",
+  "status": 1,
+  "status_desc": "running",
+  "systemd_unit": "ceph-1ea4e1cc-ddcc-11f1-9f64-00163e578a2b@ceph-exporter.cephmcp-adm",
+  "version": "20.2.0"
+ }
+]

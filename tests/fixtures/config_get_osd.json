@@ -1,0 +1,26 @@
+{
+ "container_image": {
+  "value": "quay.io/ceph/ceph@sha256:1228c3d05e45fbc068a8c33614e4409b6dac688bcc77369b06009b5830fa8d86",
+  "section": "osd",
+  "mask": {},
+  "can_update_at_runtime": true
+ },
+ "osd_memory_target_autotune": {
+  "value": "true",
+  "section": "global",
+  "mask": {},
+  "can_update_at_runtime": false
+ },
+ "osd_pool_default_size": {
+  "value": "2",
+  "section": "global",
+  "mask": {},
+  "can_update_at_runtime": true
+ },
+ "public_network": {
+  "value": "10.165.218.1/32,10.165.218.0/24",
+  "section": "global",
+  "mask": {},
+  "can_update_at_runtime": false
+ }
+}

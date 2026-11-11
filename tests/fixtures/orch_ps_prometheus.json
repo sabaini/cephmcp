@@ -1,0 +1,30 @@
+[
+ {
+  "container_id": "3bdd4fcd7bac",
+  "container_image_digests": [
+   "quay.io/prometheus/prometheus@sha256:76947e7ef22f8a698fc638f706685909be425dbe09bd7a2cd7aca849f79b5f64",
+   "quay.io/prometheus/prometheus@sha256:d9a702d3f7f398540e7190c4d80dbb8a0dc95c1e481e8ebd8a08e5bcf83cf735"
+  ],
+  "container_image_id": "4fcecf061b747d0b5dc55bc7efdba26f87768d058d403b5bcc3f0904cf49f973",
+  "container_image_name": "quay.io/prometheus/prometheus:v3.6.0",
+  "cpu_percentage": "1.38%",
+  "created": "2026-11-11T12:36:43.373230Z",
+  "daemon_id": "cephmcp-adm",
+  "daemon_name": "prometheus.cephmcp-adm",
+  "daemon_type": "prometheus",
+  "hostname": "cephmcp-adm",
+  "is_active": true,
+  "last_refresh": "2026-11-11T12:38:24.238933Z",
+  "memory_usage": 34561064,
+  "pending_daemon_config": false,
+  "ports": [
+   9095
+  ],
+  "service_name": "prometheus",
+  "started": "2026-11-11T12:36:43.245921Z",
+  "status": 1,
+  "status_desc": "running",
+  "systemd_unit": "ceph-1ea4e1cc-ddcc-11f1-9f64-00163e578a2b@prometheus.cephmcp-adm",
+  "version": "3.6.0"
+ }
+]

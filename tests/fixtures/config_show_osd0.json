@@ -1,0 +1,232 @@
+[
+ {
+  "name": "container_image",
+  "value": "quay.io/ceph/ceph@sha256:1228c3d05e45fbc068a8c33614e4409b6dac688bcc77369b06009b5830fa8d86",
+  "source": "mon"
+ },
+ {
+  "name": "daemonize",
+  "value": "false",
+  "source": "override"
+ },
+ {
+  "name": "keyring",
+  "value": "$osd_data/keyring",
+  "source": "default"
+ },
+ {
+  "name": "log_to_file",
+  "value": "false",
+  "source": "default"
+ },
+ {
+  "name": "log_to_journald",
+  "value": "true",
+  "source": "default"
+ },
+ {
+  "name": "log_to_stderr",
+  "value": "false",
+  "source": "default"
+ },
+ {
+  "name": "mon_host",
+  "value": "[v2:10.165.218.74:3300/0,v1:10.165.218.74:6789/0]",
+  "source": "file"
+ },
+ {
+  "name": "no_config_file",
+  "value": "false",
+  "source": "override"
+ },
+ {
+  "name": "osd_delete_sleep",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_delete_sleep_hdd",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_delete_sleep_hybrid",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_delete_sleep_ssd",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_max_backfills",
+  "value": "1",
+  "source": "default"
+ },
+ {
+  "name": "osd_mclock_scheduler_background_best_effort_lim",
+  "value": "0.900000",
+  "source": "default"
+ },
+ {
+  "name": "osd_mclock_scheduler_background_best_effort_res",
+  "value": "0.000000",
+  "source": "default"
+ },
+ {
+  "name": "osd_mclock_scheduler_background_best_effort_wgt",
+  "value": "1",
+  "source": "default"
+ },
+ {
+  "name": "osd_mclock_scheduler_background_recovery_lim",
+  "value": "0.000000",
+  "source": "default"
+ },
+ {
+  "name": "osd_mclock_scheduler_background_recovery_res",
+  "value": "0.500000",
+  "source": "default"
+ },
+ {
+  "name": "osd_mclock_scheduler_background_recovery_wgt",
+  "value": "1",
+  "source": "default"
+ },
+ {
+  "name": "osd_mclock_scheduler_client_lim",
+  "value": "0.000000",
+  "source": "default"
+ },
+ {
+  "name": "osd_mclock_scheduler_client_res",
+  "value": "0.500000",
+  "source": "default"
+ },
+ {
+  "name": "osd_mclock_scheduler_client_wgt",
+  "value": "1",
+  "source": "default"
+ },
+ {
+  "name": "osd_memory_target_autotune",
+  "value": "true",
+  "source": "mon"
+ },
+ {
+  "name": "osd_objectstore",
+  "value": "bluestore",
+  "source": "cmdline"
+ },
+ {
+  "name": "osd_pool_default_size",
+  "value": "2",
+  "source": "mon"
+ },
+ {
+  "name": "osd_recovery_max_active",
+  "value": "0",
+  "source": "default"
+ },
+ {
+  "name": "osd_recovery_max_active_hdd",
+  "value": "3",
+  "source": "default"
+ },
+ {
+  "name": "osd_recovery_max_active_ssd",
+  "value": "10",
+  "source": "default"
+ },
+ {
+  "name": "osd_recovery_sleep",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_recovery_sleep_degraded",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_recovery_sleep_degraded_hdd",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_recovery_sleep_degraded_hybrid",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_recovery_sleep_degraded_ssd",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_recovery_sleep_hdd",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_recovery_sleep_hybrid",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_recovery_sleep_ssd",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_scrub_sleep",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_snap_trim_sleep",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_snap_trim_sleep_hdd",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_snap_trim_sleep_hybrid",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "osd_snap_trim_sleep_ssd",
+  "value": "0.000000",
+  "source": "override"
+ },
+ {
+  "name": "public_network",
+  "value": "10.165.218.1/32,10.165.218.0/24",
+  "source": "mon"
+ },
+ {
+  "name": "rbd_default_features",
+  "value": "61",
+  "source": "default"
+ },
+ {
+  "name": "rbd_qos_exclude_ops",
+  "value": "0",
+  "source": "default"
+ },
+ {
+  "name": "setgroup",
+  "value": "ceph",
+  "source": "cmdline"
+ },
+ {
+  "name": "setuser",
+  "value": "ceph",
+  "source": "cmdline"
+ }
+]

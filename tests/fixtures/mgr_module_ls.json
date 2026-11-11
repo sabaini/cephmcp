@@ -1,0 +1,38 @@
+{
+ "always_on_modules": [
+  "balancer",
+  "crash",
+  "devicehealth",
+  "orchestrator",
+  "pg_autoscaler",
+  "progress",
+  "rbd_support",
+  "status",
+  "telemetry",
+  "volumes"
+ ],
+ "enabled_modules": [
+  "cephadm",
+  "dashboard",
+  "iostat",
+  "nfs",
+  "prometheus"
+ ],
+ "disabled_modules": [
+  {
+   "name": "alerts"
+  },
+  {
+   "name": "diskprediction_local"
+  },
+  {
+   "name": "influx"
+  },
+  {
+   "name": "insights"
+  },
+  {
+   "name": "k8sevents"
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+[{"name": "cephmcp-1", "hostname": "cephmcp-1", "ceph_version_short": "20.2.1", "ceph_release": "tentacle"}, {"name": "cephmcp-2", "hostname": "cephmcp-2", "ceph_version_short": "20.2.1", "ceph_release": "tentacle"}, {"name": "cephmcp-3", "hostname": "cephmcp-3", "ceph_version_short": "20.2.1", "ceph_release": "tentacle"}]

@@ -1,0 +1,24 @@
+{
+ "pg_ready": true,
+ "pg_summary": {
+  "num_pg_by_state": [
+   {
+    "name": "creating+incomplete",
+    "num": 16
+   },
+   {
+    "name": "active+clean",
+    "num": 33
+   }
+  ],
+  "num_pgs": 49,
+  "num_bytes": 80790072,
+  "total_bytes": 32199671808,
+  "total_avail_bytes": 25750417408,
+  "total_used_bytes": 6449254400,
+  "total_used_raw_bytes": 6449254400,
+  "read_bytes_sec": 71421922,
+  "write_bytes_sec": 0,
+  "io_sec": 4961
+ }
+}

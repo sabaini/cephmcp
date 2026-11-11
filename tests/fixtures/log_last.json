@@ -1,0 +1,278 @@
+[
+ {
+  "name": "mon.cephmcp-adm",
+  "rank": "mon.0",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:3300",
+     "nonce": 0
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6789",
+     "nonce": 0
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:45:06.750657+0000",
+  "seq": 559,
+  "channel": "cluster",
+  "priority": "[INF]",
+  "message": "Health check cleared: POOL_BACKFILLFULL (was: 3 pool(s) backfillfull)"
+ },
+ {
+  "name": "mon.cephmcp-adm",
+  "rank": "mon.0",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:3300",
+     "nonce": 0
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6789",
+     "nonce": 0
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:45:12.461991+0000",
+  "seq": 563,
+  "channel": "cluster",
+  "priority": "[WRN]",
+  "message": "Health check update: 2 nearfull osd(s) (OSD_NEARFULL)"
+ },
+ {
+  "name": "mon.cephmcp-adm",
+  "rank": "mon.0",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:3300",
+     "nonce": 0
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6789",
+     "nonce": 0
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:45:42.490839+0000",
+  "seq": 573,
+  "channel": "cluster",
+  "priority": "[WRN]",
+  "message": "Health check update: 1 nearfull osd(s) (OSD_NEARFULL)"
+ },
+ {
+  "name": "mon.cephmcp-adm",
+  "rank": "mon.0",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:3300",
+     "nonce": 0
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6789",
+     "nonce": 0
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:45:47.538221+0000",
+  "seq": 575,
+  "channel": "cluster",
+  "priority": "[INF]",
+  "message": "Health check cleared: OSD_NEARFULL (was: 1 nearfull osd(s))"
+ },
+ {
+  "name": "mon.cephmcp-adm",
+  "rank": "mon.0",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:3300",
+     "nonce": 0
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6789",
+     "nonce": 0
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:45:47.538274+0000",
+  "seq": 576,
+  "channel": "cluster",
+  "priority": "[INF]",
+  "message": "Health check cleared: POOL_NEARFULL (was: 3 pool(s) nearfull)"
+ },
+ {
+  "name": "mon.cephmcp-adm",
+  "rank": "mon.0",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:3300",
+     "nonce": 0
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6789",
+     "nonce": 0
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:56:17.841593+0000",
+  "seq": 725,
+  "channel": "cluster",
+  "priority": "[WRN]",
+  "message": "Health check failed: noout flag(s) set (OSDMAP_FLAGS)"
+ },
+ {
+  "name": "mon.cephmcp-adm",
+  "rank": "mon.0",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:3300",
+     "nonce": 0
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6789",
+     "nonce": 0
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:56:18.855888+0000",
+  "seq": 729,
+  "channel": "cluster",
+  "priority": "[WRN]",
+  "message": "Health check failed: 1 OSDs or CRUSH {nodes, device-classes} have {NOUP,NODOWN,NOIN,NOOUT} flags set (OSD_FLAGS)"
+ },
+ {
+  "name": "mon.cephmcp-adm",
+  "rank": "mon.0",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:3300",
+     "nonce": 0
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6789",
+     "nonce": 0
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:56:20.869023+0000",
+  "seq": 734,
+  "channel": "cluster",
+  "priority": "[INF]",
+  "message": "OSD flags cleared"
+ },
+ {
+  "name": "mon.cephmcp-adm",
+  "rank": "mon.0",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:3300",
+     "nonce": 0
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6789",
+     "nonce": 0
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:56:21.883043+0000",
+  "seq": 738,
+  "channel": "cluster",
+  "priority": "[INF]",
+  "message": "Health check cleared: OSDMAP_FLAGS (was: noout flag(s) set)"
+ },
+ {
+  "name": "osd.1",
+  "rank": "osd.1",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:6810",
+     "nonce": 2402738101
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6811",
+     "nonce": 2402738101
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:56:33.007606+0000",
+  "seq": 9,
+  "channel": "cluster",
+  "priority": "[WRN]",
+  "message": "Change to osd_max_backfills on osd.1 did not take effect. Enable osd_mclock_override_recovery_settings before setting this option."
+ },
+ {
+  "name": "osd.0",
+  "rank": "osd.0",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:6802",
+     "nonce": 515787046
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6803",
+     "nonce": 515787046
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:56:33.008631+0000",
+  "seq": 11,
+  "channel": "cluster",
+  "priority": "[WRN]",
+  "message": "Change to osd_max_backfills on osd.0 did not take effect. Enable osd_mclock_override_recovery_settings before setting this option."
+ },
+ {
+  "name": "osd.2",
+  "rank": "osd.2",
+  "addrs": {
+   "addrvec": [
+    {
+     "type": "v2",
+     "addr": "10.165.218.74:6818",
+     "nonce": 2303668729
+    },
+    {
+     "type": "v1",
+     "addr": "10.165.218.74:6819",
+     "nonce": 2303668729
+    }
+   ]
+  },
+  "stamp": "2026-11-11T12:56:33.010028+0000",
+  "seq": 8,
+  "channel": "cluster",
+  "priority": "[WRN]",
+  "message": "Change to osd_max_backfills on osd.2 did not take effect. Enable osd_mclock_override_recovery_settings before setting this option."
+ }
+]

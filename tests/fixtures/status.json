@@ -1,0 +1,90 @@
+{
+ "fsid": "1ea4e1cc-ddcc-11f1-9f64-00163e578a2b",
+ "health": {
+  "status": "HEALTH_WARN",
+  "checks": {
+   "PG_AVAILABILITY": {
+    "severity": "HEALTH_WARN",
+    "summary": {
+     "message": "Reduced data availability: 16 pgs inactive, 16 pgs incomplete",
+     "count": 32
+    },
+    "muted": false
+   }
+  },
+  "mutes": []
+ },
+ "election_epoch": 5,
+ "quorum": [
+  0
+ ],
+ "quorum_names": [
+  "cephmcp-adm"
+ ],
+ "quorum_age": 1446,
+ "monmap": {
+  "epoch": 1,
+  "min_mon_release_name": "tentacle",
+  "num_mons": 1
+ },
+ "osdmap": {
+  "epoch": 62,
+  "num_osds": 3,
+  "num_up_osds": 3,
+  "osd_up_since": 1794400562,
+  "num_in_osds": 3,
+  "osd_in_since": 1794400538,
+  "num_remapped_pgs": 0
+ },
+ "pgmap": {
+  "pgs_by_state": [
+   {
+    "state_name": "active+clean",
+    "count": 33
+   },
+   {
+    "state_name": "creating+incomplete",
+    "count": 16
+   }
+  ],
+  "num_pgs": 49,
+  "num_pools": 3,
+  "num_objects": 12134,
+  "data_bytes": 199344696,
+  "bytes_used": 6807994368,
+  "bytes_avail": 25391677440,
+  "bytes_total": 32199671808,
+  "inactive_pgs_ratio": 0.3265306055545807,
+  "read_bytes_sec": 3647955,
+  "write_bytes_sec": 9374278,
+  "read_op_per_sec": 222,
+  "write_op_per_sec": 572
+ },
+ "fsmap": {
+  "epoch": 1,
+  "btime": "2026-11-11T12:34:09:192470+0000",
+  "by_rank": [],
+  "up:standby": 0
+ },
+ "mgrmap": {
+  "available": true,
+  "num_standbys": 1,
+  "modules": [
+   "cephadm",
+   "dashboard",
+   "iostat",
+   "nfs",
+   "prometheus"
+  ],
+  "services": {
+   "dashboard": "https://10.165.218.74:8443/",
+   "prometheus": "http://10.165.218.74:9283/"
+  }
+ },
+ "servicemap": {
+  "epoch": 4,
+  "modified": "2026-11-11T12:52:55.589132+0000",
+  "services": {}
+ },
+ "progress_events": {}
+}

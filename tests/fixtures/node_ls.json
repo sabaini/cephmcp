@@ -1,0 +1,20 @@
+{
+ "mon": {
+  "cephmcp-adm": [
+   "cephmcp-adm"
+  ]
+ },
+ "osd": {
+  "cephmcp-adm": [
+   0,
+   1,
+   2
+  ]
+ },
+ "mgr": {
+  "cephmcp-adm": [
+   "cephmcp-adm.aofpct",
+   "cephmcp-adm.ziovuj"
+  ]
+ }
+}

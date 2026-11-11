@@ -1,0 +1,2 @@
+
+{"clients": [], "mds_version": [{"daemon": ["cephmcp-1", "cephmcp-2", "cephmcp-3"], "version": "ceph version 20.2.1 (6a49aff47758778a5f5951e731d437c317f72fb2) tentacle (stable - RelWithDebInfo)"}], "mdsmap": [{"name": "cephmcp-1", "state": "standby"}, {"name": "cephmcp-2", "state": "standby"}, {"name": "cephmcp-3", "state": "standby"}], "pools": []}

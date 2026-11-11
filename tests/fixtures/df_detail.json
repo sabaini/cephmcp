@@ -1,0 +1,104 @@
+{
+ "stats": {
+  "total_bytes": 32199671808,
+  "total_avail_bytes": 25478180864,
+  "total_used_bytes": 6721490944,
+  "total_used_raw_bytes": 6721490944,
+  "total_used_raw_ratio": 0.208744078874588,
+  "num_osds": 3,
+  "num_per_pool_osds": 3,
+  "num_per_pool_omap_osds": 3
+ },
+ "stats_by_class": {
+  "hdd": {
+   "total_bytes": 32199671808,
+   "total_avail_bytes": 25478180864,
+   "total_used_bytes": 6721490944,
+   "total_used_raw_bytes": 6721490944,
+   "total_used_raw_ratio": 0.208744078874588
+  }
+ },
+ "pools": [
+  {
+   "name": ".mgr",
+   "id": 1,
+   "stats": {
+    "stored": 590368,
+    "stored_data": 590368,
+    "stored_omap": 0,
+    "objects": 2,
+    "kb_used": 1160,
+    "bytes_used": 1187840,
+    "data_bytes_used": 1187840,
+    "omap_bytes_used": 0,
+    "percent_used": 5.5496650020359084e-05,
+    "max_avail": 10701313024,
+    "quota_objects": 0,
+    "quota_bytes": 0,
+    "dirty": 0,
+    "rd": 136,
+    "rd_bytes": 245760,
+    "wr": 135,
+    "wr_bytes": 2201600,
+    "compress_bytes_used": 0,
+    "compress_under_bytes": 0,
+    "stored_raw": 1180736,
+    "avail_raw": 21402625435
+   }
+  },
+  {
+   "name": "testpool",
+   "id": 4,
+   "stats": {
+    "stored": 198754336,
+    "stored_data": 198754336,
+    "stored_omap": 0,
+    "objects": 12132,
+    "kb_used": 388200,
+    "bytes_used": 397516800,
+    "data_bytes_used": 397516800,
+    "omap_bytes_used": 0,
+    "percent_used": 0.01823459565639496,
+    "max_avail": 10701313024,
+    "quota_objects": 0,
+    "quota_bytes": 0,
+    "dirty": 0,
+    "rd": 618021,
+    "rd_bytes": 10125302784,
+    "wr": 262082,
+    "wr_bytes": 2246176768,
+    "compress_bytes_used": 0,
+    "compress_under_bytes": 0,
+    "stored_raw": 397508672,
+    "avail_raw": 21402625435
+   }
+  },
+  {
+   "name": "ecpool",
+   "id": 5,
+   "stats": {
+    "stored": 0,
+    "stored_data": 0,
+    "stored_omap": 0,
+    "objects": 0,
+    "kb_used": 0,
+    "bytes_used": 0,
+    "data_bytes_used": 0,
+    "omap_bytes_used": 0,
+    "percent_used": 0,
+    "max_avail": 10701313024,
+    "quota_objects": 0,
+    "quota_bytes": 0,
+    "dirty": 0,
+    "rd": 0,
+    "rd_bytes": 0,
+    "wr": 0,
+    "wr_bytes": 0,
+    "compress_bytes_used": 0,
+    "compress_under_bytes": 0,
+    "stored_raw": 0,
+    "avail_raw": 21402625435
+   }
+  }
+ ]
+}

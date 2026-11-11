@@ -1,0 +1,75 @@
+
+{
+    "completed": [
+        {
+            "add_to_ceph_s:": 1794400516.0249715,
+            "finished_at": 1794400613.6446803,
+            "id": "66d9e933-ae51-4535-8213-f4514e3cce75",
+            "message": "Updating ceph-exporter deployment (+1 -> 1)",
+            "refs": [],
+            "started_at": 1794400520.8923993
+        },
+        {
+            "add_to_ceph_s:": 1794400520.9016428,
+            "finished_at": 1794400613.6446946,
+            "id": "da0ccfe5-3535-4a67-8df6-741ac82a2671",
+            "message": "Updating crash deployment (+1 -> 1)",
+            "refs": [],
+            "started_at": 1794400523.7514255
+        },
+        {
+            "add_to_ceph_s:": 1794400523.7578793,
+            "finished_at": 1794400613.6446962,
+            "id": "ea9579b5-8bfd-4b5f-9300-07148b64ca8e",
+            "message": "Updating node-exporter deployment (+1 -> 1)",
+            "refs": [],
+            "started_at": 1794400528.439057
+        },
+        {
+            "add_to_ceph_s:": 1794400562.3902605,
+            "finished_at": 1794400613.6446977,
+            "id": "bd53a28e-fe48-40e3-826b-26de6aa52405",
+            "message": "Updating alertmanager deployment (+1 -> 1)",
+            "refs": [],
+            "started_at": 1794400568.301175
+        },
+        {
+            "add_to_ceph_s:": 1794400568.3087003,
+            "finished_at": 1794400613.644699,
+            "id": "b17065f6-b314-4677-ac5c-42109b01b4ed",
+            "message": "Updating grafana deployment (+1 -> 1)",
+            "refs": [],
+            "started_at": 1794400590.6742187
+        },
+        {
+            "add_to_ceph_s:": 1794400590.6852176,
+            "finished_at": 1794400613.6447008,
+            "id": "a4d6bada-6acc-44c4-917e-e1ad4710258c",
+            "message": "Updating mgr deployment (+1 -> 2)",
+            "refs": [],
+            "started_at": 1794400593.550042
+        },
+        {
+            "add_to_ceph_s:": 1794400593.5607898,
+            "finished_at": 1794400613.644706,
+            "id": "5185aaa8-82f0-465b-ba32-ecf2670e59f1",
+            "message": "Updating prometheus deployment (+1 -> 1)",
+            "refs": [],
+            "started_at": 1794400603.525142
+        },
+        {
+            "add_to_ceph_s:": false,
+            "finished_at": 1794400973.8347044,
+            "id": "ef38a93e-723d-442b-a046-1df9b0fa6557",
+            "message": "PG autoscaler increasing pool 2 PGs from 32 to 128",
+            "refs": [
+                [
+                    "pool",
+                    2
+                ]
+            ],
+            "started_at": 1794400973.8306656
+        }
+    ],
+    "events": []
+}

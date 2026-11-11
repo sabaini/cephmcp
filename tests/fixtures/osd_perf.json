@@ -1,0 +1,34 @@
+{
+ "pg_ready": true,
+ "osdstats": {
+  "osd_perf_infos": [
+   {
+    "id": 2,
+    "perf_stats": {
+     "commit_latency_ms": 1,
+     "apply_latency_ms": 1,
+     "commit_latency_ns": 1000000,
+     "apply_latency_ns": 1000000
+    }
+   },
+   {
+    "id": 1,
+    "perf_stats": {
+     "commit_latency_ms": 1,
+     "apply_latency_ms": 1,
+     "commit_latency_ns": 1000000,
+     "apply_latency_ns": 1000000
+    }
+   },
+   {
+    "id": 0,
+    "perf_stats": {
+     "commit_latency_ms": 1,
+     "apply_latency_ms": 1,
+     "commit_latency_ns": 1000000,
+     "apply_latency_ns": 1000000
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,170 @@
+{
+ "size": 20,
+ "duration": 600,
+ "ops": [
+  {
+   "description": "osd_op(client.14274.0:12062 2.13 2:c9f5f90b:::benchmark_data_cephmcp-adm_26862_object12061:head [set-alloc-hint object_size 65536 write_size 65536,write 0~65536] snapc 0=[] ondisk+write+known_if_redirected+supports_pool_eio e24)",
+   "initiated_at": "2026-11-11T12:40:42.312754+0000",
+   "age": 37.684041037,
+   "duration": 0.022189942,
+   "continuous": false,
+   "type_data": {
+    "flag_point": "commit sent; apply or cleanup",
+    "client_info": {
+     "client": "client.14274",
+     "client_addr": "10.165.218.74:0/4224457481",
+     "tid": 12062
+    },
+    "events": [
+     {
+      "event": "initiated",
+      "time": "2026-11-11T12:40:42.312754+0000",
+      "duration": 0
+     },
+     {
+      "event": "header_read",
+      "time": "2026-11-11T12:40:42.312754+0000",
+      "duration": 0
+     },
+     {
+      "event": "throttled",
+      "time": "2026-11-11T12:40:42.312756+0000",
+      "duration": 1.682e-06
+     },
+     {
+      "event": "all_read",
+      "time": "2026-11-11T12:40:42.312783+0000",
+      "duration": 2.7819e-05
+     },
+     {
+      "event": "dispatched",
+      "time": "2026-11-11T12:40:42.312784+0000",
+      "duration": 1.11e-06
+     },
+     {
+      "event": "queued_for_pg",
+      "time": "2026-11-11T12:40:42.312787+0000",
+      "duration": 2.903e-06
+     },
+     {
+      "event": "reached_pg",
+      "time": "2026-11-11T12:40:42.313113+0000",
+      "duration": 0.000325921
+     },
+     {
+      "event": "started",
+      "time": "2026-11-11T12:40:42.313148+0000",
+      "duration": 3.497e-05
+     },
+     {
+      "event": "waiting for subops from 2",
+      "time": "2026-11-11T12:40:42.313177+0000",
+      "duration": 2.8305e-05
+     },
+     {
+      "event": "op_commit",
+      "time": "2026-11-11T12:40:42.314864+0000",
+      "duration": 0.001687334
+     },
+     {
+      "event": "sub_op_commit_rec",
+      "time": "2026-11-11T12:40:42.334926+0000",
+      "duration": 0.020062024
+     },
+     {
+      "event": "commit_sent",
+      "time": "2026-11-11T12:40:42.334934+0000",
+      "duration": 8.235e-06
+     },
+     {
+      "event": "done",
+      "time": "2026-11-11T12:40:42.334944+0000",
+      "duration": 9.639e-06
+     }
+    ]
+   }
+  },
+  {
+   "description": "osd_op(client.14274.0:14937 2.2 2:468a61d4:::benchmark_data_cephmcp-adm_26862_object14936:head [set-alloc-hint object_size 65536 write_size 65536,write 0~65536] snapc 0=[] ondisk+write+known_if_redirected+supports_pool_eio e24)",
+   "initiated_at": "2026-11-11T12:40:43.926433+0000",
+   "age": 36.070362217,
+   "duration": 0.016303903,
+   "continuous": false,
+   "type_data": {
+    "flag_point": "commit sent; apply or cleanup",
+    "client_info": {
+     "client": "client.14274",
+     "client_addr": "10.165.218.74:0/4224457481",
+     "tid": 14937
+    },
+    "events": [
+     {
+      "event": "initiated",
+      "time": "2026-11-11T12:40:43.926433+0000",
+      "duration": 0
+     },
+     {
+      "event": "header_read",
+      "time": "2026-11-11T12:40:43.926433+0000",
+      "duration": 0
+     },
+     {
+      "event": "throttled",
+      "time": "2026-11-11T12:40:43.926434+0000",
+      "duration": 1.106e-06
+     },
+     {
+      "event": "all_read",
+      "time": "2026-11-11T12:40:43.926460+0000",
+      "duration": 2.606e-05
+     },
+     {
+      "event": "dispatched",
+      "time": "2026-11-11T12:40:43.926461+0000",
+      "duration": 9.59e-07
+     },
+     {
+      "event": "queued_for_pg",
+      "time": "2026-11-11T12:40:43.926463+0000",
+      "duration": 2.54e-06
+     },
+     {
+      "event": "reached_pg",
+      "time": "2026-11-11T12:40:43.926489+0000",
+      "duration": 2.6188e-05
+     },
+     {
+      "event": "started",
+      "time": "2026-11-11T12:40:43.926531+0000",
+      "duration": 4.1643e-05
+     },
+     {
+      "event": "waiting for subops from 1",
+      "time": "2026-11-11T12:40:43.926562+0000",
+      "duration": 3.1279e-05
+     },
+     {
+      "event": "op_commit",
+      "time": "2026-11-11T12:40:43.941027+0000",
+      "duration": 0.014464437
+     },
+     {
+      "event": "sub_op_commit_rec",
+      "time": "2026-11-11T12:40:43.942709+0000",
+      "duration": 0.001682119
+     },
+     {
+      "event": "commit_sent",
+      "time": "2026-11-11T12:40:43.942724+0000",
+      "duration": 1.4962e-05
+     },
+     {
+      "event": "done",
+      "time": "2026-11-11T12:40:43.942737+0000",
+      "duration": 1.261e-05
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+# HELP ceph_bluestore_kv_sync_lat_count Average kv_sync thread latency Count
+# TYPE ceph_bluestore_kv_sync_lat_count counter
+ceph_bluestore_kv_sync_lat_count{ceph_daemon="osd.0"} 39801
+ceph_bluestore_kv_sync_lat_count{ceph_daemon="osd.1"} 40674
+ceph_bluestore_kv_sync_lat_count{ceph_daemon="osd.2"} 30715
+# HELP ceph_bluestore_kv_sync_lat_sum Average kv_sync thread latency Total
+# TYPE ceph_bluestore_kv_sync_lat_sum gauge
+ceph_bluestore_kv_sync_lat_sum{ceph_daemon="osd.0"} 32.279981
+ceph_bluestore_kv_sync_lat_sum{ceph_daemon="osd.1"} 32.584561
+ceph_bluestore_kv_sync_lat_sum{ceph_daemon="osd.2"} 24.355627
+# HELP ceph_exporter_scrape_time Time spent scraping and transforming perf counters to metrics
+# TYPE ceph_exporter_scrape_time gauge
+ceph_exporter_scrape_time{function="dump_asok_metrics",host="cephmcp-adm"} 91.672897
+# HELP ceph_osd_numpg Placement groups
+# TYPE ceph_osd_numpg gauge
+ceph_osd_numpg{ceph_daemon="osd.0"} 32
+ceph_osd_numpg{ceph_daemon="osd.1"} 30
+ceph_osd_numpg{ceph_daemon="osd.2"} 20
+# HELP ceph_osd_op_r Client read operations
+# TYPE ceph_osd_op_r counter
+ceph_osd_op_r{ceph_daemon="osd.0"} 0
+ceph_osd_op_r{ceph_daemon="osd.1"} 39
+ceph_osd_op_r{ceph_daemon="osd.2"} 0
+# HELP ceph_osd_op_r_latency_count Latency of read operation (including queue time) Count
+# TYPE ceph_osd_op_r_latency_count counter
+ceph_osd_op_r_latency_count{ceph_daemon="osd.0"} 0
+ceph_osd_op_r_latency_count{ceph_daemon="osd.1"} 39
+ceph_osd_op_r_latency_count{ceph_daemon="osd.2"} 0
+# HELP ceph_osd_op_r_latency_sum Latency of read operation (including queue time) Total
+# TYPE ceph_osd_op_r_latency_sum gauge
+ceph_osd_op_r_latency_sum{ceph_daemon="osd.0"} 0.000000
+ceph_osd_op_r_latency_sum{ceph_daemon="osd.1"} 0.023653
+ceph_osd_op_r_latency_sum{ceph_daemon="osd.2"} 0.000000
+# HELP ceph_osd_op_r_out_bytes Client data read
+# TYPE ceph_osd_op_r_out_bytes counter
+ceph_osd_op_r_out_bytes{ceph_daemon="osd.0"} 0
+ceph_osd_op_r_out_bytes{ceph_daemon="osd.1"} 132454
+ceph_osd_op_r_out_bytes{ceph_daemon="osd.2"} 0
+# HELP ceph_osd_op_w Client write operations
+# TYPE ceph_osd_op_w counter
+ceph_osd_op_w{ceph_daemon="osd.0"} 28529
+ceph_osd_op_w{ceph_daemon="osd.1"} 26018
+ceph_osd_op_w{ceph_daemon="osd.2"} 21036
+# HELP ceph_osd_op_w_in_bytes Client data written
+# TYPE ceph_osd_op_w_in_bytes counter
+ceph_osd_op_w_in_bytes{ceph_daemon="osd.0"} 1869676544
+ceph_osd_op_w_in_bytes{ceph_daemon="osd.1"} 1702169340
+ceph_osd_op_w_in_bytes{ceph_daemon="osd.2"} 1378615296
+# HELP ceph_osd_op_w_latency_count Latency of write operation (including queue time) Count
+# TYPE ceph_osd_op_w_latency_count counter
+ceph_osd_op_w_latency_count{ceph_daemon="osd.0"} 28529
+ceph_osd_op_w_latency_count{ceph_daemon="osd.1"} 26018
+ceph_osd_op_w_latency_count{ceph_daemon="osd.2"} 21036
+# HELP ceph_osd_op_w_latency_sum Latency of write operation (including queue time) Total
+# TYPE ceph_osd_op_w_latency_sum gauge
+ceph_osd_op_w_latency_sum{ceph_daemon="osd.0"} 111.325165
+ceph_osd_op_w_latency_sum{ceph_daemon="osd.1"} 103.653470
+ceph_osd_op_w_latency_sum{ceph_daemon="osd.2"} 83.746322
+# HELP ceph_prioritycache:full_pri0_bytes bytes allocated to pri0
+# TYPE ceph_prioritycache:full_pri0_bytes gauge
+ceph_prioritycache:full_pri0_bytes{ceph_daemon="mon.cephmcp-adm"} 0

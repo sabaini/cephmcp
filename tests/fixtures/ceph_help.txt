@@ -1,0 +1,566 @@
+
+ General usage: 
+ ==============
+usage: ceph [-h] [-c CEPHCONF] [-i INPUT_FILE] [-o OUTPUT_FILE]
+            [--setuser SETUSER] [--setgroup SETGROUP] [--id CLIENT_ID]
+            [--name CLIENT_NAME] [--cluster CLUSTER]
+            [--admin-daemon ADMIN_SOCKET] [-s] [-w] [--watch-debug]
+            [--watch-info] [--watch-sec] [--watch-warn] [--watch-error]
+            [-W WATCH_CHANNEL] [--version] [--verbose] [--concise]
+            [--daemon-output-file DAEMON_OUTPUT_FILE]
+            [-f {json,json-pretty,xml,xml-pretty,plain,yaml}]
+            [--connect-timeout CLUSTER_TIMEOUT] [--block] [--period PERIOD]
+
+Ceph administration tool
+
+options:
+  -h, --help            request mon help
+  -c, --conf CEPHCONF   ceph configuration file
+  -i, --in-file INPUT_FILE
+                        input file, or "-" for stdin
+  -o, --out-file OUTPUT_FILE
+                        output file, or "-" for stdout
+  --setuser SETUSER     set user file permission
+  --setgroup SETGROUP   set group file permission
+  --id, --user CLIENT_ID
+                        client id for authentication
+  --name, -n CLIENT_NAME
+                        client name for authentication
+  --cluster CLUSTER     cluster name
+  --admin-daemon ADMIN_SOCKET
+                        submit admin-socket command (e.g. "help" fora list of
+                        available commands)
+  -s, --status          show cluster status
+  -w, --watch           watch live cluster changes
+  --watch-debug         watch debug events
+  --watch-info          watch info events
+  --watch-sec           watch security events
+  --watch-warn          watch warn events
+  --watch-error         watch error events
+  -W, --watch-channel WATCH_CHANNEL
+                        watch live cluster changes on a specific channel
+                        (e.g., cluster, audit, cephadm, or '*' for all)
+  --version, -v         display version
+  --verbose             make verbose
+  --concise             make less verbose
+  --daemon-output-file DAEMON_OUTPUT_FILE
+                        output file location local to the daemon for JSON
+                        produced by tell commands
+  -f, --format {json,json-pretty,xml,xml-pretty,plain,yaml}
+                        Note: yaml is only valid for orch commands
+  --connect-timeout CLUSTER_TIMEOUT
+                        set a timeout for connecting to the cluster
+  --block               block until completion (scrub and deep-scrub only)
+  --period, -p PERIOD   polling period, default 1.0 second (for polling
+                        commands only)
+
+ Local commands: 
+ ===============
+
+ping <mon.id>           Send simple presence/life test to a mon
+                        <mon.id> may be 'mon.*' for all mons
+daemon {type.id|path} <cmd>
+                        Same as --admin-daemon, but auto-find admin socket
+daemonperf {type.id | path} [stat-pats] [priority] [<interval>] [<count>]
+daemonperf {type.id | path} list|ls [stat-pats] [priority]
+                        Get selected perf stats from daemon/admin socket
+                        Optional shell-glob comma-delim match string stat-pats
+                        Optional selection priority (can abbreviate name):
+                         critical, interesting, useful, noninteresting, debug
+                        List shows a table of all available stats
+                        Run <count> times (default forever),
+                         once per <interval> seconds (default 1)
+    
+
+ Monitor commands: 
+ =================
+alerts send                             (re)send alerts immediately
+auth add <entity> [<caps>...]           add auth info for <entity> from input 
+                                         file, or random key if no input is 
+                                         given, and/or any caps specified in 
+                                         the command
+auth caps <entity> <caps>...            update caps for <name> from caps 
+                                         specified in the command
+auth clear-pending <entity>             clear pending key
+auth commit-pending <entity>            rotate pending key into active position
+auth export [<entity>]                  write keyring for requested entity, or 
+                                         master keyring if none given
+auth get <entity>                       write keyring file with requested key
+auth get-key <entity>                   display requested key
+auth get-or-create <entity> [<caps>...] add auth info for <entity> from input 
+                                         file, or random key if no input given, 
+                                         and/or any caps specified in the 
+                                         command
+auth get-or-create-key <entity>         get, or add, key for <name> from system/
+ [<caps>...]                             caps pairs specified in the command.  
+                                         If key already exists, any given caps 
+                                         must match the existing caps for that 
+                                         key.
+auth get-or-create-pending <entity>     generate and/or retrieve existing 
+                                         pending key (rotated into place on 
+                                         first use)
+auth import                             auth import: read keyring file from -i 
+                                         <file>
+auth ls                                 list authentication state
+auth print-key <entity>                 display requested key
+auth print_key <entity>                 display requested key
+auth rm <entity>                        remove all caps for <name>
+auth rotate <entity>                    rotate entity key
+balancer dump <plan>                    Show an optimization plan
+balancer eval [<option>]                Evaluate data distribution for the 
+                                         current cluster or specific pool or 
+                                         specific plan
+balancer eval-verbose [<option>]        Evaluate data distribution for the 
+                                         current cluster or specific pool or 
+                                         specific plan (verbosely)
+balancer execute <plan>                 Execute an optimization plan
+balancer ls                             List all plans
+balancer mode <mode:none|crush-compat|  Set balancer mode
+ upmap|read|upmap-read>                 
+balancer off                            Disable automatic balancing
+balancer on                             Enable automatic balancing
+balancer optimize <plan> [<pools>...]   Run optimizer to create a new plan
+balancer pool add <pools>...            Enable automatic balancing for specific 
+                                         pools
+balancer pool ls                        List automatic balancing pools  Note 
+                                         that empty list means all existing 
+                                         pools will be automatic balancing 
+                                         targets, which is the default 
+                                         behaviour of balancer.
+balancer pool rm <pools>...             Disable automatic balancing for 
+                                         specific pools
+balancer reset                          Discard all optimization plans
+balancer rm <plan>                      Discard an optimization plan
+balancer show <plan>                    Show details of an optimization plan
+balancer status                         Show balancer status
+balancer status detail                  Show balancer status (detailed)
+config assimilate-conf                  Assimilate options from a conf, and 
+                                         return a new, minimal conf file
+config dump                             Show all configuration option(s)
+config generate-minimal-conf            Generate a minimal ceph.conf file
+config get <who> [<key>]                Show configuration option(s) for an 
+                                         entity
+config help <key>                       Describe a configuration option
+config log [<num:int>]                  Show recent history of config changes
+config ls                               List available configuration options
+config reset <num:int>                  Revert configuration to a historical 
+                                         version specified by <num>
+config rm <who> <name>                  Clear a configuration option for one or 
+                                         more entities
+config set <who> <name> <value> [--     Set a configuration option for one or 
+ force]                                  more entities
+config show <who> [<key>]               Show running configuration
+config show-with-defaults <who>         Show running configuration (including 
+                                         compiled-in defaults)
+config-key dump [<key>]                 dump keys and values (with optional 
+                                         prefix)
+config-key exists <key>                 check for <key>'s existence
+config-key get <key>                    get <key>
+config-key ls                           list keys
+config-key rm <key>                     rm <key>
+config-key set <key> [<val>]            set <key> to value <val>
+crash ls [--format <value>]             Show new and archived crash dumps
+crash ls-new [--format <value>]         Show new crash dumps
+dashboard get-grafana-api-password      Get the GRAFANA_API_PASSWORD option 
+                                         value
+dashboard get-grafana-api-ssl-verify    Get the GRAFANA_API_SSL_VERIFY option 
+                                         value
+dashboard get-grafana-api-url           Get the GRAFANA_API_URL option value
+dashboard get-grafana-api-username      Get the GRAFANA_API_USERNAME option 
+                                         value
+dashboard get-grafana-frontend-api-url  Get the GRAFANA_FRONTEND_API_URL option 
+                                         value
+dashboard get-grafana-update-dashboards Get the GRAFANA_UPDATE_DASHBOARDS 
+                                         option value
+device ls                               Show devices
+device ls-by-daemon <who>               Show devices associated with a daemon
+device ls-by-host <host>                Show devices on a host
+device ls-lights                        List currently active device indicator 
+                                         lights
+df [<detail:detail>]                    show cluster free space stats
+fs ls                                   list filesystems
+fs lsflags <fs_name>                    list the flags set on a ceph filesystem
+fs rm <fs_name> [--yes-i-really-mean-   disable the named filesystem
+ it]                                    
+fs rm_data_pool <fs_name> <pool>        remove data pool <pool>
+fs status [<fs>] [--format <value>]     Show the status of a CephFS filesystem
+health [<detail:detail>]                show cluster health
+health mute <code> [<ttl>] [--sticky]   mute health alert
+health unmute [<code>]                  unmute existing health alert mute(s)
+healthcheck history clear               Clear the healthcheck history
+healthcheck history ls [--format        List all the healthchecks being tracked 
+ {plain|json|json-pretty|yaml}]          The format options are parsed in ceph_
+                                         argparse, before they get evaluated 
+                                         here so we can safely assume that what 
+                                         we have to process is valid. ceph_
+                                         argparse will throw a ValueError if 
+                                         the cast to our Format class fails.  
+                                         Args:     format (Format, optional): 
+                                         output format. Defaults to Format.
+                                         plain.  Returns:     
+                                         HandleCommandResult: return code, 
+                                         stdout and stderr returned to the 
+                                         caller
+log last [<num:int>] [<level:debug|     print last few lines of the cluster log
+ info|sec|warn|error>] [<channel:*|     
+ cluster|audit|cephadm>]                
+mgr dump [<epoch:int>]                  dump the latest MgrMap
+mgr module disable <module>             disable mgr module
+mgr module enable <module> [--force]    enable mgr module
+mgr module force disable <module> [--   force disable a always-on mgr module
+ yes-i-really-mean-it]                  
+mgr module ls                           list active mgr modules
+mgr services                            list service endpoints provided by mgr 
+                                         modules
+orch apply [<service_type:mon|mgr|rbd-  Update the size or placement for a 
+ mirror|cephfs-mirror|crash|             service or apply a large yaml spec
+ alertmanager|grafana|node-exporter|    
+ ceph-exporter|prometheus|loki|         
+ promtail|mds|rgw|nfs|iscsi|nvmeof|     
+ snmp-gateway|elasticsearch|jaeger-     
+ agent|jaeger-collector|jaeger-query>]  
+ [<placement>] [--dry-run] [--format    
+ {plain|json|json-pretty|yaml|xml-      
+ pretty|xml}] [--unmanaged] [--no-      
+ overwrite] [--continue-on-error]       
+orch apply iscsi <pool> <api_user>      Scale an iSCSI service
+ <api_password> [<trusted_ip_list>]     
+ [<placement>] [--unmanaged] [--dry-    
+ run] [--format {plain|json|json-       
+ pretty|yaml|xml-pretty|xml}] [--no-    
+ overwrite]                             
+orch apply jaeger [<es_nodes>] [--      Apply jaeger tracing services
+ without-query] [--placement <value>]   
+ [--unmanaged] [--dry-run] [--format    
+ {plain|json|json-pretty|yaml|xml-      
+ pretty|xml}] [--no-overwrite]          
+orch apply mds <fs_name> [<placement>]  Update the number of MDS instances for 
+ [--dry-run] [--unmanaged] [--format     the given fs_name
+ {plain|json|json-pretty|yaml|xml-      
+ pretty|xml}] [--no-overwrite]          
+orch apply mgmt-gateway [<port:int>] [- Add a cluster gateway service (cephadm 
+ -ssl] [--enable-auth] [--virtual_ip     only)
+ <value>] [--placement <value>] [--     
+ unmanaged] [--dry-run] [--format       
+ {plain|json|json-pretty|yaml|xml-      
+ pretty|xml}] [--no-overwrite]          
+orch apply nfs <svc_id> [<placement>]   Scale an NFS service
+ [--format {plain|json|json-pretty|     
+ yaml|xml-pretty|xml}] [--port <int>]   
+ [--dry-run] [--unmanaged] [--no-       
+ overwrite]                             
+orch apply nvmeof <pool> <group>        Scale an nvmeof service
+ [<placement>] [--unmanaged] [--dry-    
+ run] [--format {plain|json|json-       
+ pretty|yaml|xml-pretty|xml}] [--no-    
+ overwrite]                             
+orch apply oauth2-proxy [<https_        Add a cluster gateway service (cephadm 
+ address>] [<placement>] [--unmanaged]   only)
+ [--dry-run] [--format {plain|json|     
+ json-pretty|yaml|xml-pretty|xml}] [--  
+ no-overwrite]                          
+orch apply osd [--all-available-        Create OSD daemon(s) on all available 
+ devices] [--format {plain|json|json-    devices
+ pretty|yaml|xml-pretty|xml}] [--       
+ unmanaged] [--dry-run] [--no-          
+ overwrite] [--method {raw|lvm}]        
+orch apply rgw <svc_id> [<placement>]   Update the number of RGW instances for 
+ [--realm <value>] [--zonegroup          the given zone
+ <value>] [--zone <value>] [--networks  
+ <value>...] [--port <int>] [--ssl] [-- 
+ dry-run] [--format {plain|json|json-   
+ pretty|yaml|xml-pretty|xml}] [--       
+ unmanaged] [--no-overwrite]            
+orch apply smb <cluster_id> <config_    Apply an SMB network file system 
+ uri> [<features>] [<join_sources>...]   gateway service configuration.
+ [<custom_dns>...] [<include_ceph_      
+ users>...] [<placement>] [--           
+ unmanaged] [--dry-run] [--format       
+ {plain|json|json-pretty|yaml|xml-      
+ pretty|xml}] [--no-overwrite]          
+orch apply snmp-gateway <snmp_version:  Add a Prometheus to SNMP gateway 
+ V2c|V3> <destination> [<port:int>]      service (cephadm only)
+ [<engine_id>] [<auth_protocol:MD5|     
+ SHA>] [<privacy_protocol:DES|AES>]     
+ [<placement>] [--unmanaged] [--dry-    
+ run] [--format {plain|json|json-       
+ pretty|yaml|xml-pretty|xml}] [--no-    
+ overwrite]                             
+orch ls [<service_type>] [<service_     List services known to orchestrator
+ name>] [--export] [--format {plain|    
+ json|json-pretty|yaml|xml-pretty|      
+ xml}] [--refresh]                      
+orch ps [<hostname>] [--service_name    List daemons known to orchestrator
+ <value>] [--daemon_type <value>] [--   
+ daemon_id <value>] [--sort_by          
+ {service_name|daemon_type|name|host|   
+ status|refreshed|age|mem_use|mem_lim|  
+ image}] [--format {plain|json|json-    
+ pretty|yaml|xml-pretty|xml}] [--       
+ refresh]                               
+orch rm <service_name> [--force]        Remove a service
+osd crush rm <name> [<ancestor>]        remove <name> from crush map (
+                                         everywhere, or just at <ancestor>)
+osd crush rm-device-class <ids>...      remove class of the osd(s) <id> [<id>...
+                                         ],or use <all|any> to remove all.
+osd crush rule create-erasure <name>    create crush rule <name> for erasure 
+ [<profile>]                             coded pool created with <profile> (
+                                         default default)
+osd crush rule create-replicated        create crush rule <name> for replicated 
+ <name> <root> <type> [<class>]          pool to start from <root>, replicate 
+                                         across buckets of type <type>, use 
+                                         devices of type <class> (ssd or hdd)
+osd crush rule create-simple <name>     create crush rule <name> to start from 
+ <root> <type> [<mode:firstn|indep>]     <root>, replicate across buckets of 
+                                         type <type>, using a choose mode of 
+                                         <firstn|indep> (default firstn; indep 
+                                         best for erasure pools)
+osd crush rule dump [<name>]            dump crush rule <name> (default all)
+osd crush rule ls                       list crush rules
+osd crush rule ls-by-class <class>      list all crush rules that reference the 
+                                         same <class>
+osd crush rule rename <srcname>         rename crush rule <srcname> to <dstname>
+ <dstname>                              
+osd crush rule rm <name>                remove crush rule <name>
+osd crush tree [--show-shadow]          dump crush buckets and items in a tree 
+                                         view
+osd df [<output_method:plain|tree>]     show OSD utilization
+ [<filter_by:class|name>] [<filter>]    
+osd dump [<epoch:int>]                  print summary of OSD map
+osd in <ids>...                         set osd(s) <id> [<id>...] in, can use 
+                                         <any|all> to automatically set all 
+                                         previously out osds in
+osd info [<id|osd.id>]                  print osd's {id} information (instead 
+                                         of all osds from map)
+osd ok-to-stop <ids>... [<max:int>]     check whether osd(s) can be safely 
+                                         stopped without reducing immediate 
+                                         data availability
+osd out <ids>...                        set osd(s) <id> [<id>...] out, or use 
+                                         <any|all> to set all osds out
+osd perf                                print dump of OSD perf summary stats
+osd perf counters get <query_id:int>    fetch osd perf counters
+osd perf query add <query:client_id|    add osd perf query
+ rbd_image_id|all_subkeys>              
+osd perf query remove <query_id:int>    remove osd perf query
+osd pool application disable <pool>     disables use of an application <app> on 
+ <app> [--yes-i-really-mean-it]          pool <poolname>
+osd pool application enable <pool>      enable use of an application <app> 
+ <app> [--yes-i-really-mean-it]          [cephfs,rbd,rgw] on pool <poolname>
+osd pool application get [<pool>]       get value of key <key> of application 
+ [<app>] [<key>]                         <app> on pool <poolname>
+osd pool application rm <pool> <app>    removes application <app> metadata key 
+ <key>                                   <key> on pool <poolname>
+osd pool application set <pool> <app>   sets application <app> metadata key 
+ <key> <value>                           <key> to <value> on pool <poolname>
+osd pool autoscale-status [--format     report on pool pg_num sizing 
+ <value>]                                recommendation and intent
+osd pool availability-status            obtain availability stats from all pools
+osd pool cancel-force-backfill <who>... restore normal recovery priority of 
+                                         specified pool <who>
+osd pool cancel-force-recovery <who>... restore normal recovery priority of 
+                                         specified pool <who>
+osd pool clear-availability-status      clear a pool's existing availability 
+ <pool>                                  stats
+osd pool create <pool> [<pg_num:int>]   create pool
+ [<pgp_num:int>] [<pool_type:           
+ replicated|erasure>] [<erasure_code_   
+ profile>] [<rule>] [<expected_num_     
+ objects:int>] [<size:int>] [<pg_num_   
+ min:int>] [<pg_num_max:int>]           
+ [<autoscale_mode:on|off|warn>] [--     
+ bulk] [<target_size_bytes:int>]        
+ [<target_size_ratio:float>] [--yes-i-  
+ really-mean-it]                        
+osd pool deep-scrub <who>...            initiate deep-scrub on pool <who>
+osd pool force-backfill <who>...        force backfill of specified pool <who> 
+                                         first
+osd pool force-recovery <who>...        force recovery of specified pool <who> 
+                                         first
+osd pool force-remove-snap <pool>       Forces removal of snapshots in the 
+ [<lower_snapid_bound:int>] [<upper_     range [lower_snapid_bound, upper_
+ snapid_bound:int>] [--dry-run]          snapid_bound) on pool <pool> in order 
+                                         to cause OSDs to re-trim them.
+osd pool get <pool> <var:size|min_size| get pool parameter <var>
+ pg_num|pgp_num|crush_rule|hashpspool|  
+ nodelete|nopgchange|nosizechange|      
+ write_fadvise_dontneed|noscrub|nodeep- 
+ scrub|hit_set_type|hit_set_period|hit_ 
+ set_count|hit_set_fpp|use_gmt_hitset|  
+ target_max_objects|target_max_bytes|   
+ cache_target_dirty_ratio|cache_target_ 
+ dirty_high_ratio|cache_target_full_    
+ ratio|cache_min_flush_age|cache_min_   
+ evict_age|erasure_code_profile|min_    
+ read_recency_for_promote|all|min_      
+ write_recency_for_promote|fast_read|   
+ hit_set_grade_decay_rate|hit_set_      
+ search_last_n|scrub_min_interval|      
+ scrub_max_interval|deep_scrub_         
+ interval|recovery_priority|recovery_   
+ op_priority|scrub_priority|            
+ compression_mode|compression_          
+ algorithm|compression_required_ratio|  
+ compression_max_blob_size|compression_ 
+ min_blob_size|csum_type|csum_min_      
+ block|csum_max_block|allow_ec_         
+ overwrites|fingerprint_algorithm|pg_   
+ autoscale_mode|pg_autoscale_bias|pg_   
+ num_min|pg_num_max|target_size_bytes|  
+ target_size_ratio|dedup_tier|dedup_    
+ chunk_algorithm|dedup_cdc_chunk_size|  
+ eio|bulk|read_ratio|pct_update_delay|  
+ allow_ec_optimizations>                
+osd pool get noautoscale                Get the noautoscale flag to see if all 
+                                         pools are setting the autoscaler on or 
+                                         off as well as newly created pools in 
+                                         the future.
+osd pool get-quota <pool>               obtain object or byte limits for pool
+osd pool ls [<detail:detail>]           list pools
+osd pool mksnap <pool> <snap>           make snapshot <snap> in <pool>
+osd pool rename <srcpool> <destpool> [- rename <srcpool> to <destpool>
+ -yes-i-really-mean-it]                 
+osd pool repair <who>...                initiate repair on pool <who>
+osd pool rm <pool> [<pool2>] [--yes-i-  remove pool
+ really-really-mean-it] [--yes-i-       
+ really-really-mean-it-not-faking]      
+osd pool rmsnap <pool> <snap>           remove snapshot <snap> from <pool>
+osd pool scrub <who>...                 initiate scrub on pool <who>
+osd pool set <pool> <var:size|min_size| set pool parameter <var> to <val>
+ pg_num|pgp_num|pgp_num_actual|crush_   
+ rule|hashpspool|nodelete|nopgchange|   
+ nosizechange|write_fadvise_dontneed|   
+ noscrub|nodeep-scrub|hit_set_type|hit_ 
+ set_period|hit_set_count|hit_set_fpp|  
+ use_gmt_hitset|target_max_bytes|       
+ target_max_objects|cache_target_dirty_ 
+ ratio|cache_target_dirty_high_ratio|   
+ cache_target_full_ratio|cache_min_     
+ flush_age|cache_min_evict_age|min_     
+ read_recency_for_promote|min_write_    
+ recency_for_promote|fast_read|hit_set_ 
+ grade_decay_rate|hit_set_search_last_  
+ n|scrub_min_interval|scrub_max_        
+ interval|deep_scrub_interval|recovery_ 
+ priority|recovery_op_priority|scrub_   
+ priority|compression_mode|compression_ 
+ algorithm|compression_required_ratio|  
+ compression_max_blob_size|compression_ 
+ min_blob_size|csum_type|csum_min_      
+ block|csum_max_block|allow_ec_         
+ overwrites|fingerprint_algorithm|pg_   
+ autoscale_mode|pg_autoscale_bias|pg_   
+ num_min|pg_num_max|target_size_bytes|  
+ target_size_ratio|dedup_tier|dedup_    
+ chunk_algorithm|dedup_cdc_chunk_size|  
+ eio|bulk|read_ratio|pct_update_delay|  
+ allow_ec_optimizations> <val> [--yes-  
+ i-really-mean-it]                      
+osd pool set noautoscale                set the noautoscale for all pools (
+                                         including newly created pools in the 
+                                         future) and complete all on-going 
+                                         progress events regarding PG-
+                                         autoscaling.
+osd pool set threshold <num:float>      set the autoscaler threshold  A.K.A. 
+                                         the factor by which the new PG_NUM 
+                                         must vary from the existing PG_NUM
+osd pool set-quota <pool> <field:max_   set object or byte limit on pool
+ objects|max_bytes> <val>               
+osd pool stats [<pool_name>]            obtain stats from all pools, or from 
+                                         specified pool
+osd pool stretch set <pool> <peering_   make the pool stretched across the 
+ crush_bucket_count:int> <peering_       specified number of CRUSH buckets
+ crush_bucket_target:int> <peering_     
+ crush_bucket_barrier> <crush_rule>     
+ <size:int> <min_size:int> [--yes-i-    
+ really-mean-it]                        
+osd pool stretch show <pool>            show all the stretch related 
+                                         information for the pool
+osd pool stretch unset <pool> <crush_   unset the stretch mode for the pool
+ rule> <size:int> <min_size:int>        
+osd pool unset noautoscale              Unset the noautoscale flag so all pools 
+                                         will go back to its previous mode. 
+                                         Newly created pools in the future will 
+                                         autoscaler on by default.
+osd purge <id|osd.id> [--force] [--yes- purge all osd data from the monitors 
+ i-really-mean-it]                       including the OSD id and CRUSH position
+osd purge-new <id|osd.id> [--yes-i-     purge all traces of an OSD that was 
+ really-mean-it]                         partially created but never started
+osd rm-pg-upmap <pgid>                  clear pg_upmap mapping for <pgid> (
+                                         developers only)
+osd rm-pg-upmap-items <pgid>            clear pg_upmap_items mapping for <pgid> 
+                                         (developers only)
+osd rm-pg-upmap-primary <pgid>          clear pg primary setting for <pgid>
+osd rm-pg-upmap-primary-all             clear all pg primary entries (
+                                         developers only)
+osd rm-primary-temp <pgid>              clear primary_temp mapping pgid (
+                                         developers only)
+osd set <key:full|pause|noup|nodown|    set <key>
+ noout|noin|nobackfill|norebalance|     
+ norecover|noscrub|nodeep-scrub|        
+ notieragent|nosnaptrim|pglog_          
+ hardlimit|noautoscale> [--yes-i-       
+ really-mean-it]                        
+osd set-allow-crimson [--yes-i-really-  Allow crimson-osds to boot and join the 
+ mean-it]                                cluster.  Note, crimson-osd is not yet 
+                                         considered stable and may crash or 
+                                         cause data loss -- should be avoided 
+                                         outside of testing and development.  
+                                         This setting is irrevocable
+osd set-backfillfull-ratio <ratio:      set usage ratio at which OSDs are 
+ float>                                  marked too full to backfill
+osd set-full-ratio <ratio:float>        set usage ratio at which OSDs are 
+                                         marked full
+osd set-group <flags> <who>...          set <flags> for batch osds or crush 
+                                         nodes, <flags> must be a comma-
+                                         separated subset of {noup,nodown,noin,
+                                         noout}
+osd set-nearfull-ratio <ratio:float>    set usage ratio at which OSDs are 
+                                         marked near-full
+osd set-require-min-compat-client       set the minimum client version we will 
+ <version> [--yes-i-really-mean-it]      maintain compatibility with
+osd setcrushmap [<prior_version:int>]   set crush map from input file
+osd setmaxosd <newmax:int>              set new maximum osd value
+osd tree [<epoch:int>] [<states:up|     print OSD tree
+ down|in|out|destroyed>...]             
+osd tree-from [<epoch:int>] <bucket>    print OSD tree in bucket
+ [<states:up|down|in|out|destroyed>...] 
+osd unset <key:full|pause|noup|nodown|  unset <key>
+ noout|noin|nobackfill|norebalance|     
+ norecover|noscrub|nodeep-scrub|        
+ notieragent|nosnaptrim|noautoscale>    
+osd unset-group <flags> <who>...        unset <flags> for batch osds or crush 
+                                         nodes, <flags> must be a comma-
+                                         separated subset of {noup,nodown,noin,
+                                         noout}
+pg cancel-force-backfill <pgid>...      restore normal backfill priority of 
+                                         <pgid>
+pg cancel-force-recovery <pgid>...      restore normal recovery priority of 
+                                         <pgid>
+pg debug <debugop:unfound_objects_      show debug info about pgs
+ exist|degraded_pgs_exist>              
+pg deep-scrub <pgid>                    start deep-scrub on <pgid>
+pg dump [<dumpcontents:all|summary|sum| show human-readable versions of pg map (
+ delta|pools|osds|pgs|pgs_brief>...]     only 'all' valid with plain)
+pg dump_json [<dumpcontents:all|        show human-readable version of pg map 
+ summary|sum|pools|osds|pgs>...]         in json only
+pg dump_pools_json                      show pg pools info in json only
+pg dump_stuck [<stuckops:inactive|      show information about stuck pgs
+ unclean|stale|undersized|degraded>...  
+ ] [<threshold:int>]                    
+pg force-backfill <pgid>...             force backfill of <pgid> first
+pg force-recovery <pgid>...             force recovery of <pgid> first
+pg getmap                               get binary pg map to -o/stdout
+pg ls [<pool:int>] [<states>...]        list pg with specific pool, osd, state
+pg ls-by-osd <id|osd.id> [<pool:int>]   list pg on osd [osd]
+ [<states>...]                          
+pg ls-by-pool <poolstr> [<states>...]   list pg with pool = [poolname]
+pg ls-by-primary <id|osd.id> [<pool:    list pg with primary = [osd]
+ int>] [<states>...]                    
+pg map <pgid>                           show mapping of pg to osds
+pg repair <pgid>                        start repair on <pgid>
+pg repeer <pgid>                        force a PG to repeer
+pg scrub <pgid>                         start scrub on <pgid>
+pg stat                                 show placement group status.
+quorum_status                           report status of monitor quorum
+status                                  show cluster status
+versions                                check running versions of ceph daemons

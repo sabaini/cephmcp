@@ -1,0 +1,22 @@
+{
+ "name": "osd_max_backfills",
+ "type": "uint",
+ "level": "advanced",
+ "desc": "Maximum number of concurrent local and remote backfills or recoveries per OSD",
+ "long_desc": "There can be osd_max_backfills local reservations AND the same remote reservations per OSD. So a value of 1 lets this OSD participate as 1 PG primary in recovery and 1 shard of another recovering PG.",
+ "default": 1,
+ "daemon_default": "",
+ "tags": [],
+ "services": [
+  "osd"
+ ],
+ "see_also": [
+  "osd_mclock_override_recovery_settings"
+ ],
+ "min": "",
+ "max": "",
+ "can_update_at_runtime": true,
+ "flags": [
+  "runtime"
+ ]
+}

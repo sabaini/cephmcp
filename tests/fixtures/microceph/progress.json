@@ -1,0 +1,71 @@
+
+{
+    "completed": [
+        {
+            "add_to_ceph_s:": false,
+            "finished_at": 1794406242.995944,
+            "id": "29320b79-7c15-4af1-a335-849cb0fc9d28",
+            "message": "PG autoscaler increasing pool 2 PGs from 1 to 32",
+            "refs": [
+                [
+                    "pool",
+                    2
+                ]
+            ],
+            "started_at": 1794406242.9934654
+        },
+        {
+            "add_to_ceph_s:": false,
+            "finished_at": 1794406367.1015434,
+            "id": "a4b9a9ce-7563-40b0-aba7-0b3a2c69741e",
+            "message": "PG autoscaler increasing pool 3 PGs from 1 to 32",
+            "refs": [
+                [
+                    "pool",
+                    3
+                ]
+            ],
+            "started_at": 1794406364.0619702
+        },
+        {
+            "add_to_ceph_s:": false,
+            "finished_at": 1794406367.1022418,
+            "id": "f22ba55a-ae45-4266-afef-1d2011356aa3",
+            "message": "PG autoscaler increasing pool 4 PGs from 1 to 32",
+            "refs": [
+                [
+                    "pool",
+                    4
+                ]
+            ],
+            "started_at": 1794406365.0790472
+        },
+        {
+            "add_to_ceph_s:": false,
+            "finished_at": 1794406367.102684,
+            "id": "acc74ab9-6bac-4831-8551-a91d2e9fc142",
+            "message": "PG autoscaler increasing pool 5 PGs from 1 to 32",
+            "refs": [
+                [
+                    "pool",
+                    5
+                ]
+            ],
+            "started_at": 1794406366.0816133
+        },
+        {
+            "add_to_ceph_s:": false,
+            "finished_at": 1794406367.1030524,
+            "id": "8b64362a-00b8-4662-94da-f2363c224a1a",
+            "message": "PG autoscaler increasing pool 6 PGs from 1 to 32",
+            "refs": [
+                [
+                    "pool",
+                    6
+                ]
+            ],
+            "started_at": 1794406367.0939085
+        }
+    ],
+    "events": []
+}

@@ -1,0 +1,3 @@
+
+{"pg_ready":true,"pg_summary":{"num_pg_by_state":[{"name":"creating+incomplete","num":16},{"name":"active+clean","num":33}],"num_pgs":49,"num_bytes":590368,"total_bytes":32199671808,"total_avail_bytes":29650440192,"total_used_bytes":2549231616,"total_used_raw_bytes":2549231616}
+}

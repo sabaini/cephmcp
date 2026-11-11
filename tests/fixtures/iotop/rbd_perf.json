@@ -1,0 +1,2 @@
+
+{"timestamp": 1794415634.0, "stat_descriptors": ["write_ops", "read_ops", "write_bytes", "read_bytes", "write_latency", "read_latency"], "pool_descriptors": {"0": "testpool"}, "stats": [{"0/vm-disk-1": [3512.4, 0.0, 57701171.2, 0.0, 76753229.78561667, 0.0]}, {"0/vm-disk-2": [2261.8, 0.0, 9272524.8, 0.0, 96001684.65912105, 0.0]}]}

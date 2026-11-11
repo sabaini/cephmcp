@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cephmcp"
+version = "0.1.0"
+description = "MCP server for Ceph and MicroCeph: cluster administration and performance metrics for AI agents"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Peter Sabaini" }]
+keywords = ["ceph", "microceph", "mcp", "model-context-protocol", "storage"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Systems Administration",
+    "Topic :: System :: Monitoring",
+]
+dependencies = [
+    "mcp>=2.3,<3",
+    "httpx2>=2.10",
+    "anyio>=4.9",
+]
+
+[project.scripts]
+cephmcp = "cephmcp.cli:main"
+
+[project.optional-dependencies]
+charts = [
+    "pillow>=10.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+    "pillow>=10.1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cephmcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "lab: needs a live cluster; set CEPHMCP_LAB_CMD to an MCP stdio command line",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]

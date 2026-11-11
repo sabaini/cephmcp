@@ -1,0 +1,36 @@
+{
+ "status": "success",
+ "data": {
+  "resultType": "matrix",
+  "result": [
+   {
+    "metric": {},
+    "values": [
+     [
+      1794400645,
+      "0"
+     ],
+     [
+      1794400705,
+      "0"
+     ],
+     [
+      1794400765,
+      "0"
+     ],
+     [
+      1794400825,
+      "0"
+     ],
+     [
+      1794400885,
+      "1211.7035753333334"
+     ]
+    ]
+   }
+  ]
+ },
+ "infos": [
+  "PromQL info: metric might not be a counter, name does not end in _total/_sum/_count/_bucket: \"ceph_osd_op_w\" (1:10)"
+ ]
+}

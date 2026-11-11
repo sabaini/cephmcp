@@ -1,0 +1,10 @@
+
+{
+    "active": true,
+    "last_optimize_duration": "0:00:00.000724",
+    "last_optimize_started": "Wed Nov 11 15:32:53 2026",
+    "mode": "upmap",
+    "no_optimization_needed": true,
+    "optimize_result": "Some PGs (0.326531) are inactive; try again later",
+    "plans": []
+}
